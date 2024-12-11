@@ -40,6 +40,18 @@
         <input type='submit' value='Submit'>
     </form>
 
+    <div>
+        <form method="get" action="/songs">
+            <select name="albumFilterId">
+                <option th:each="album : ${albums}" th:value="${album.id}" th:text="${album.name}">
+
+                </option>
+            </select>
+            <br/>
+            <input type="submit" value="Submit1"/>
+        </form>
+
+    </div>
 </main>
 </body>
 </html>

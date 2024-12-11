@@ -28,12 +28,20 @@ public class SongController {
     }
 
     @GetMapping("/songs")
-    public String getSongsPage(@RequestParam(required = false) String error, Model model){
+    public String getSongsPage(@RequestParam(required = false) String error,
+                               @RequestParam(required = false) Long albumFilterId,
+                               Model model){
         if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
-        model.addAttribute("songs", this.songService.listSongs());
+        if(albumFilterId != null ) {
+            System.out.println("v23" );
+            model.addAttribute("songs", this.songService.findSongsByAlbumId(albumFilterId));
+        } else {
+            model.addAttribute("songs", this.songService.listSongs());
+        }
+        model.addAttribute("albums", this.albumService.findAll());
         return "listSongs";
     }
 
