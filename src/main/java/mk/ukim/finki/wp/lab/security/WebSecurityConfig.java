@@ -1,4 +1,4 @@
-package mk.finki.ukim.mk.lab.security;
+package mk.ukim.finki.wp.lab.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
