@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.lab.data;
+package mk.finki.ukim.mk.lab.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,7 +50,7 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails userAdmin =
-                User.withDefaultPasswordEncoder()
+                User.builder()
                         .username("admin")
                         .password("admin")
                         .roles("ADMIN")
